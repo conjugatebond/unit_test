@@ -1,0 +1,2 @@
+cargo:rustc-env=TYPENUM_BUILD_CONSTS=/root/aleo_test3/snarkVM/target/release/build/typenum-84ffbaf063a429b1/out/consts.rs
+cargo:rustc-env=TYPENUM_BUILD_OP=/root/aleo_test3/snarkVM/target/release/build/typenum-84ffbaf063a429b1/out/op.rs

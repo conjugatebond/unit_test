@@ -1,0 +1,1 @@
+/root/aleo_test3/sppark/rust/target/release/libsppark.rlib: /root/aleo_test3/sppark/ec /root/aleo_test3/sppark/ff /root/aleo_test3/sppark/msm /root/aleo_test3/sppark/ntt /root/aleo_test3/sppark/rust/build.rs /root/aleo_test3/sppark/rust/src/lib.cpp /root/aleo_test3/sppark/rust/src/lib.rs /root/aleo_test3/sppark/util

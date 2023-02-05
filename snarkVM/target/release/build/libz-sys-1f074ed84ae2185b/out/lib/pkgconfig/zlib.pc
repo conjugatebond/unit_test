@@ -1,0 +1,13 @@
+prefix=/root/aleo_test3/snarkVM/target/release/build/libz-sys-1f074ed84ae2185b/out
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+sharedlibdir=@sharedlibdir@
+includedir=@includedir@
+
+Name: zlib
+Description: zlib compression library
+Version: @VERSION@
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}

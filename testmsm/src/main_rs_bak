@@ -1,0 +1,62 @@
+use snarkvm_synthesizer::*;
+use snarkvm_synthesizer::coinbase_puzzle::CoinbasePuzzle;
+use snarkvm_console::account::*;
+use snarkvm_console_network::Testnet3;
+use snarkvm_utilities::Uniform;
+
+use rand::RngCore;
+
+use snarkvm_curves::bls12_377::{Fr, G1Affine};
+use snarkvm_fields::PrimeField;
+use snarkvm_utilities::rand::TestRng;
+use snarkvm_curves::ProjectiveCurve;
+use snarkvm_curves::AffineCurve;
+
+fn create_scalar_bases<G: AffineCurve<ScalarField = F>, F: PrimeField>(size: usize) -> (Vec<G>, Vec<F::BigInteger>) {
+    let mut rng = TestRng::default();
+
+    let bases = std::iter::repeat((0..(size / 1000)).into_iter().map(|_| G::rand(&mut rng)).collect::<Vec<_>>())
+        .take(1000)
+        .flatten()
+        .collect::<Vec<_>>();
+    let scalars = (0..size).into_iter().map(|_| F::rand(&mut rng).to_bigint()).collect::<Vec<_>>();
+    (bases, scalars)
+}
+
+fn main() {
+
+    /*
+    let mut rng = TestRng::default();
+    let epoch_challenge : snarkvm_synthesizer::EpochChallenge<Testnet3> = EpochChallenge::new(rng.next_u32(), Default::default(), 8191).unwrap();
+    let private_key = PrivateKey::<Testnet3>::new(&mut rng).unwrap();
+    let address = Address::try_from(private_key).unwrap();
+    let nonce = u64::rand(&mut rng);
+    let t : u64 = 38468412;
+    let minimum_proof_target = std::option::Option::Some(t);
+    */
+
+    let (bases, scalars) = create_scalar_bases::<G1Affine, Fr>(16384);
+
+    println!("bases: {:#?}", bases[1]);
+
+    //CoinbasePuzzle::<Testnet3>::prove(&CoinbasePuzzle::<Testnet3>::Prover, &epoch_challenge, address, nonce, minimum_proof_target);
+
+    //let polynomial = CoinbasePuzzle::prover_polynomial(&epoch_challenge, address, nonce);
+
+    /*
+    let product_evaluations = {
+            let polynomial_evaluations = pk.product_domain.in_order_fft_with_pc(&polynomial, &pk.fft_precomputation);
+            let product_evaluations = pk.product_domain.mul_polynomials_in_evaluation_domain(
+                &polynomial_evaluations,
+                &epoch_challenge.epoch_polynomial_evaluations().evaluations,
+            );
+            product_evaluations
+        };
+
+    */
+    //CoinbasePuzzle::prove(&epoch_challenge, address, nonce, minimum_proof_target);
+
+
+
+    
+}

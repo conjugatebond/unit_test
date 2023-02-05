@@ -1,0 +1,69 @@
+cargo:rerun-if-changed=/root/aleo_test3/sppark/ec
+cargo:rerun-if-changed=/root/aleo_test3/sppark/ff
+cargo:rerun-if-changed=/root/aleo_test3/sppark/ntt
+cargo:rerun-if-changed=/root/aleo_test3/sppark/msm
+cargo:rerun-if-changed=/root/aleo_test3/sppark/util
+cargo:ROOT=/root/aleo_test3/sppark
+TARGET = Some("x86_64-unknown-linux-gnu")
+OPT_LEVEL = Some("3")
+HOST = Some("x86_64-unknown-linux-gnu")
+cargo:rerun-if-env-changed=CXX_x86_64-unknown-linux-gnu
+CXX_x86_64-unknown-linux-gnu = None
+cargo:rerun-if-env-changed=CXX_x86_64_unknown_linux_gnu
+CXX_x86_64_unknown_linux_gnu = None
+cargo:rerun-if-env-changed=HOST_CXX
+HOST_CXX = None
+cargo:rerun-if-env-changed=CXX
+CXX = None
+cargo:rerun-if-env-changed=NVCC_x86_64-unknown-linux-gnu
+NVCC_x86_64-unknown-linux-gnu = None
+cargo:rerun-if-env-changed=NVCC_x86_64_unknown_linux_gnu
+NVCC_x86_64_unknown_linux_gnu = None
+cargo:rerun-if-env-changed=HOST_NVCC
+HOST_NVCC = None
+cargo:rerun-if-env-changed=NVCC
+NVCC = None
+cargo:rerun-if-env-changed=CXXFLAGS_x86_64-unknown-linux-gnu
+CXXFLAGS_x86_64-unknown-linux-gnu = None
+cargo:rerun-if-env-changed=CXXFLAGS_x86_64_unknown_linux_gnu
+CXXFLAGS_x86_64_unknown_linux_gnu = None
+cargo:rerun-if-env-changed=HOST_CXXFLAGS
+HOST_CXXFLAGS = None
+cargo:rerun-if-env-changed=CXXFLAGS
+CXXFLAGS = None
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+DEBUG = Some("false")
+CARGO_CFG_TARGET_FEATURE = Some("fxsr,sse,sse2")
+running: "nvcc" "-ccbin=c++" "-Xcompiler" "-O3" "-Xcompiler" "-ffunction-sections" "-Xcompiler" "-fdata-sections" "-Xcompiler" "-fPIC" "-m64" "-I" "/root/aleo_test3/sppark" "-Xcompiler" "-Wall" "-Xcompiler" "-Wextra" "-o" "/root/aleo_test3/sppark/rust/target/release/build/sppark-ff03b6eba8ac34db/out/src/lib.o" "-c" "src/lib.cpp"
+exit status: 0
+running: "nvcc" "-ccbin=c++" "-Xcompiler" "-O3" "-Xcompiler" "-ffunction-sections" "-Xcompiler" "-fdata-sections" "-Xcompiler" "-fPIC" "-m64" "-I" "/root/aleo_test3/sppark" "-Xcompiler" "-Wall" "-Xcompiler" "-Wextra" "-o" "/root/aleo_test3/sppark/rust/target/release/build/sppark-ff03b6eba8ac34db/out/9098fee892aee82c-all_gpus.o" "-c" "/root/aleo_test3/sppark/util/all_gpus.cpp"
+exit status: 0
+cargo:rerun-if-env-changed=AR_x86_64-unknown-linux-gnu
+AR_x86_64-unknown-linux-gnu = None
+cargo:rerun-if-env-changed=AR_x86_64_unknown_linux_gnu
+AR_x86_64_unknown_linux_gnu = None
+cargo:rerun-if-env-changed=HOST_AR
+HOST_AR = None
+cargo:rerun-if-env-changed=AR
+AR = None
+running: "ar" "cq" "/root/aleo_test3/sppark/rust/target/release/build/sppark-ff03b6eba8ac34db/out/libsppark_cuda.a" "/root/aleo_test3/sppark/rust/target/release/build/sppark-ff03b6eba8ac34db/out/src/lib.o" "/root/aleo_test3/sppark/rust/target/release/build/sppark-ff03b6eba8ac34db/out/9098fee892aee82c-all_gpus.o"
+exit status: 0
+running: "ar" "s" "/root/aleo_test3/sppark/rust/target/release/build/sppark-ff03b6eba8ac34db/out/libsppark_cuda.a"
+exit status: 0
+cargo:rustc-link-lib=static=sppark_cuda
+cargo:rustc-link-search=native=/root/aleo_test3/sppark/rust/target/release/build/sppark-ff03b6eba8ac34db/out
+cargo:rerun-if-env-changed=CXXSTDLIB_x86_64-unknown-linux-gnu
+CXXSTDLIB_x86_64-unknown-linux-gnu = None
+cargo:rerun-if-env-changed=CXXSTDLIB_x86_64_unknown_linux_gnu
+CXXSTDLIB_x86_64_unknown_linux_gnu = None
+cargo:rerun-if-env-changed=HOST_CXXSTDLIB
+HOST_CXXSTDLIB = None
+cargo:rerun-if-env-changed=CXXSTDLIB
+CXXSTDLIB = None
+cargo:rustc-link-lib=stdc++
+cargo:rustc-link-search=native=/usr/local/cuda-12.0/bin/../targets/x86_64-linux/lib
+cargo:rustc-link-lib=cudart_static
+cargo:rerun-if-changed=src/lib.cpp
+cargo:rustc-cfg=feature="cuda"
+cargo:rerun-if-env-changed=NVCC

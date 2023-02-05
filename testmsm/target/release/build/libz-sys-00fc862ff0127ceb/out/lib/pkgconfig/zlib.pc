@@ -1,0 +1,13 @@
+prefix=/root/aleo_test3/testmsm/target/release/build/libz-sys-00fc862ff0127ceb/out
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+sharedlibdir=@sharedlibdir@
+includedir=@includedir@
+
+Name: zlib
+Description: zlib compression library
+Version: @VERSION@
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}
